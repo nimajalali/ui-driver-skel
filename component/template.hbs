@@ -4,22 +4,62 @@
     {{partial "host/add-common"}}
 
     <div class="over-hr r-mt20 r-mb20">
-      <span>My Skeleton Driver</span>
+      <span>Account Access</span>
     </div>
 
-    {{!-- An example input option --}}
-    <div class="row">
-      <div class="col-sm-12 col-md-2 form-label">
-        <label class="form-control-static">Size</label>
+    <div class="row form-group">
+      <div class="col-md-2 form-label">
+        <label class="form-control-static">Triton Account*</label>
       </div>
-      <div class="col-sm-12 col-md-4">
-        <div class="input-group">
-          {{input type="text"
-            class="form-control"
-            value=model.%%DRIVERNAME%%Config.size
-          }}
-          <span class="input-group-addon">MB</span>
-        </div>
+      <div class="col-md-4">
+        {{input type="text" class="form-control" value=model.%%DRIVERNAME%%Config.account placeholder="Triton Account Username"}}
+      </div>
+      <div class="col-md-2 form-label">
+        <label class="form-control-static">Triton URL</label>
+      </div>
+      <div class="col-md-4">
+        {{input type="text" class="form-control" value=model.%%DRIVERNAME%%Config.url placeholder="https://us-east-1.api.joyent.com"}}
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-2 form-label">
+        <label class="form-control-static">Triton SSH Private Key*</label>
+      </div>
+      <div class="col-md-4">
+        {{textarea class="form-control" value=model.%%DRIVERNAME%%Config.keyPath placeholder="-----BEGIN RSA PRIVATE KEY-----"}}
+      </div>
+      <div class="col-md-2 form-label">
+        <label class="form-control-static">Triton SSH Key Fingerprint*</label>
+      </div>
+      <div class="col-md-4">
+        {{input type="text" class="form-control" value=model.%%DRIVERNAME%%Config.keyId placeholder="68:9f:9a:c4:76:3a:f4:62:77:47:3e:47:d4:34:4a:b7"}}
+      </div>
+    </div>
+
+    <div class="over-hr r-mt20 r-mb20">
+      <span>Instance</span>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-md-2 form-label">
+        <label class="form-control-static">Triton Image Name</label>
+      </div>
+      <div class="col-md-4">
+        {{input type="text" class="form-control" value=model.%%DRIVERNAME%%Config.image placeholder="debian-8"}}
+      </div>
+      <div class="col-md-2 form-label">
+        <label class="form-control-static">SSH User</label>
+      </div>
+      <div class="col-md-4">
+        {{input type="text" class="form-control" value=model.%%DRIVERNAME%%Config.sshUser placeholder="root"}}
+      </div>
+    </div>
+    <div class = "row form-group">
+      <div class="col-md-2 form-label">
+        <label class="form-control-static">Triton Package</label>
+      </div>
+      <div class="col-md-4">
+        {{input type="text" class="form-control" value=model.%%DRIVERNAME%%Config.package placeholder="k4-highcpu-kvm-250M"}}
       </div>
     </div>
 
